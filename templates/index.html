@@ -1,0 +1,182 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SignUp | Form</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'css/userview.css' %}">
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script> -->
+
+</head>
+<body>
+<div class="container pt-5">
+  <h2>Current User Data</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Username</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="res-head">Id:</span>{{user.id}}</td>
+        <td><span class="res-head">username:</span>{{user.username}}</td>
+        <td><span class="res-head">firstname:</span>{{user.first_name}}</td>
+        <td><span class="res-head">lastname:</span>{{user.last_name}}</td>
+        <td><span class="res-head">email:</span>{{user.email}}</td>
+        <td><span class="res-head">password:</span>{{user.password}}</td>
+       
+      </tr>
+    </tbody>
+  </table>
+</div>
+ 
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Increament || Decreament </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>    
+<style>
+        body {
+            font-family: "Open Sans", sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+            color: #8184a1;
+            line-height: 1.3;
+          }
+          h4 {
+            margin-top: 0;
+            margin-bottom: 50px;
+          }
+          /* a:link, a:visited {
+            transition: color 0.15s ease 0s, border-color 0.15s ease 0s, background-color 0.15s ease 0s;
+          } */
+          .container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
+          .quantity {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+          }
+          .quantity__minus,
+          .quantity__plus {
+            display: block;
+            width: 22px;
+            height: 23px;
+            margin: 0;
+            background: #dee0ee;
+            text-decoration: none;
+            text-align: center;
+            line-height: 23px;
+          }
+          .quantity__minus:hover,
+          .quantity__plus:hover {
+            background: #575b71;
+            color: #fff;
+          } 
+          .quantity__minus {
+            border-radius: 3px 0 0 3px;
+          }
+          .quantity__plus {
+            border-radius: 0 3px 3px 0;
+          }
+          .quantity__input {
+            width: 32px;
+            height: 19px;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            border-top: 2px solid #dee0ee;
+            border-bottom: 2px solid #dee0ee;
+            border-left: 1px solid #dee0ee;
+            border-right: 2px solid #dee0ee;
+            background: #fff;
+            color: #8184a1;
+          }
+          .quantity__minus:link,
+          .quantity__plus:link {
+            color: #8184a1;
+          } 
+          .quantity__minus:visited,
+          .quantity__plus:visited {
+            color: #fff;
+          }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+  
+        <h1>Increment/decrement counter</h1>
+        <h4>on Django </h4>
+        
+        <div class="quantity">
+          <a href="#" class="quantity__minus"><span>-</span></a>
+          <input name="quy" type="text" class="quantity__input" value="{{f}}" >
+          <a class="quantity__plus" pid="{{bookname}}"><span>+</span></a>
+        </div>
+        
+      </div>
+    <script>
+          $('.quantity__plus').click(function(){
+            var id = $(this).attr("pid").toString();
+            var em = this.parentNode.children[3]
+            console.log(id,"kkkkkkkkk")
+            $.ajax({
+                type:"GET",
+                url:"/plus",
+                data: {prod_id : id},
+                success:function(data){
+                    console.log(data)
+                    em.innerText = data.q
+                }
+            }
+                
+            )
+          })
+    </script>
+</body>
+</html>
+{% endcomment %}
